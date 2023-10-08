@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: 668fc011a15158c42b33cd7eec67f420
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 228047035022196259
+    second: Pum2_Idle_0
+  - first:
+      213: -156388070328139291
+    second: Pum2_Idle_1
+  - first:
+      213: -1390515881697293660
+    second: Pum2_Idle_2
+  - first:
+      213: -6363340317029249642
+    second: Pum2_Idle_3
+  - first:
+      213: 4843586940449702692
+    second: Pum2_Idle_4
+  - first:
+      213: 5758464016048513162
+    second: Pum2_Idle_5
+  - first:
+      213: 6731748948575789819
+    second: Pum2_Idle_6
+  - first:
+      213: -4671039339219821949
+    second: Pum2_Idle_7
+  - first:
+      213: 3665082565023440345
+    second: Pum2_Idle_8
+  - first:
+      213: 4443049330684822730
+    second: Pum2_Idle_9
+  - first:
+      213: -8417431979235920938
+    second: Pum2_Idle_10
+  - first:
+      213: 6478890881349827819
+    second: Pum2_Idle_11
+  - first:
+      213: 6078821084430394471
+    second: Pum2_Idle_12
+  - first:
+      213: 6805292739511118536
+    second: Pum2_Idle_13
+  - first:
+      213: 5025607617529827446
+    second: Pum2_Idle_14
+  - first:
+      213: -8841989415797505362
+    second: Pum2_Idle_15
+  - first:
+      213: 8787625233275803916
+    second: Pum2_Idle_16
+  - first:
+      213: 8406751378313811427
+    second: Pum2_Idle_17
+  - first:
+      213: 5068041645582629307
+    second: Pum2_Idle_18
+  - first:
+      213: -7300320032640031323
+    second: Pum2_Idle_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pum2_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e3492f19f2a2300800000000000000
+      internalID: 228047035022196259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e18bfce0e564ddf0800000000000000
+      internalID: -156388070328139291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aac4e04c25e3bce0800000000000000
+      internalID: -1390515881697293660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dcc8232bfd0b7a0800000000000000
+      internalID: -6363340317029249642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423c930f8a0e73340800000000000000
+      internalID: 4843586940449702692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80e070538c2aef40800000000000000
+      internalID: 5758464016048513162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf228fc900afb6d50800000000000000
+      internalID: 6731748948575789819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a5ded18722d2fb0800000000000000
+      internalID: -4671039339219821949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd13b8ac2dfcd230800000000000000
+      internalID: 3665082565023440345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4810373d1e8ad30800000000000000
+      internalID: 4443049330684822730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d331ac56364f2b80800000000000000
+      internalID: -8417431979235920938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: becbf511ee4a9e950800000000000000
+      internalID: 6478890881349827819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764e0aeb19f4c5450800000000000000
+      internalID: 6078821084430394471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8caea1bc0b1417e50800000000000000
+      internalID: 6805292739511118536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670dc57508b8eb540800000000000000
+      internalID: 5025607617529827446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea240a32971fa4580800000000000000
+      internalID: -8841989415797505362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09d9a0479ae3f970800000000000000
+      internalID: 8787625233275803916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e59b6376d7caa470800000000000000
+      internalID: 8406751378313811427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9b6d7660d455640800000000000000
+      internalID: 5068041645582629307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a5a2dbeb9d00ba90800000000000000
+      internalID: -7300320032640031323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

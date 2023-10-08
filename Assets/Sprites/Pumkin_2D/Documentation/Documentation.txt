@@ -1,0 +1,43 @@
+	
+--------------Pumpkin 2D----------------------------
+
+2D Animation Spritesheet of Halloween Pumpkin
+
+Technical Details:-
+		
+		- FPS : 25
+		- Total Spritesheets : 14
+		- Character Variations : 2
+		- Animations for each characters : 7 (Idle,Run,Walk, Attack, Hit, Death, Jump)
+		- Character : Halloween Pumpkin
+		- Sheet Resolution and Frames count: 
+			Idle - 4000x2636 (20)
+			Walk - 4000 x 2636 (20)
+			Run - 4000 x 2636 (20)
+			Attack - 3200 x 1977 (12)
+			Hit - 2400 x 2636 (12)
+			Death - 3200 x 2636 (12)
+			Jump - 1600 x 1977 (6)
+Features:-
+	- Two character variation
+	- Stylised design
+	- Smooth animations
+	- Prefabs included
+	- Easy to change colors
+	- Unique Animations
+	- High quality images
+	- Mobile supported
+	- Demo scenes included
+	
+How to use:-
+	
+	Simply drag and drop any Spritesheet animation from the Prefab (Pumpkin_2D > Prefabs) folder
+	to you scene.
+
+..................................................................................
+
+About Us : We are "SR Studios Kerala", Game developing company located in Alappuzha, Kerala, India
+
+Contact : srstudioskerala@gmail.com
+
+................Thanks for downloading this package................................

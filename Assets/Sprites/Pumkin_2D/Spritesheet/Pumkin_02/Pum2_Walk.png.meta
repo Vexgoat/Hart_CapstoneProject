@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: 065a16b0e77a9624396ada9c0239fc4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8092071873209912490
+    second: Pum2_Walk_0
+  - first:
+      213: 1493241912581298599
+    second: Pum2_Walk_1
+  - first:
+      213: 4208018633793368277
+    second: Pum2_Walk_2
+  - first:
+      213: 4842490257004689844
+    second: Pum2_Walk_3
+  - first:
+      213: 6797153193454032430
+    second: Pum2_Walk_4
+  - first:
+      213: -2759585767837238548
+    second: Pum2_Walk_5
+  - first:
+      213: -1857290948892244069
+    second: Pum2_Walk_6
+  - first:
+      213: 1917278171386275171
+    second: Pum2_Walk_7
+  - first:
+      213: 7043961585013859014
+    second: Pum2_Walk_8
+  - first:
+      213: -3162070409574880987
+    second: Pum2_Walk_9
+  - first:
+      213: 7848589261809021060
+    second: Pum2_Walk_10
+  - first:
+      213: 3367190391383125835
+    second: Pum2_Walk_11
+  - first:
+      213: -8544021261082865322
+    second: Pum2_Walk_12
+  - first:
+      213: -5334415602537798446
+    second: Pum2_Walk_13
+  - first:
+      213: -2670127936756102367
+    second: Pum2_Walk_14
+  - first:
+      213: 488891689491646211
+    second: Pum2_Walk_15
+  - first:
+      213: 1247102652838269710
+    second: Pum2_Walk_16
+  - first:
+      213: 5579915972955049431
+    second: Pum2_Walk_17
+  - first:
+      213: -1006020637782976614
+    second: Pum2_Walk_18
+  - first:
+      213: 1160469538579653834
+    second: Pum2_Walk_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pum2_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653b464418f23bf80800000000000000
+      internalID: -8092071873209912490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a91223ab9f09b410800000000000000
+      internalID: 1493241912581298599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d07a7307a2e56a30800000000000000
+      internalID: 4208018633793368277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9fd0d6b3bf33340800000000000000
+      internalID: 4842490257004689844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1977
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e265dbb01d6545e50800000000000000
+      internalID: 6797153193454032430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea76d47d5bf3b9d0800000000000000
+      internalID: -2759585767837238548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97cabae8b39936e0800000000000000
+      internalID: -1857290948892244069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365e615b65a8b9a10800000000000000
+      internalID: 1917278171386275171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2af36bdbd21c160800000000000000
+      internalID: 7043961585013859014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1318
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529e38247b11e14d0800000000000000
+      internalID: -3162070409574880987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480721a995acbec60800000000000000
+      internalID: 7848589261809021060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fef7122d9aabe20800000000000000
+      internalID: 3367190391383125835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65155c36ee98d6980800000000000000
+      internalID: -8544021261082865322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4ee6eb54958f5b0800000000000000
+      internalID: -5334415602537798446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 659
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b4ec8d9ccc1fad0800000000000000
+      internalID: -2670127936756102367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3074acdb664e8c600800000000000000
+      internalID: 488891689491646211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e035fdc51499e4110800000000000000
+      internalID: 1247102652838269710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd83848308df6d40800000000000000
+      internalID: 5579915972955049431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_18
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97db306f85e902f0800000000000000
+      internalID: -1006020637782976614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pum2_Walk_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 659
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4a3bb95e0da1010800000000000000
+      internalID: 1160469538579653834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

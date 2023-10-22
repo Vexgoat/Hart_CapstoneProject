@@ -9,7 +9,7 @@ public class Player2Controller : MonoBehaviour
     public float speed;
 
     private Rigidbody2D body;
-    //private Animator playerAnim;
+    private Animator playerAnim;
     private bool ontheground;
 
     PhotonView view; 
@@ -17,7 +17,7 @@ public class Player2Controller : MonoBehaviour
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        //playerAnim = GetComponent<Animator>();
+        playerAnim = GetComponent<Animator>();
         view = GetComponent<PhotonView>();
     }
  
@@ -39,8 +39,7 @@ public class Player2Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && ontheground)
             Jumping();
 
-        //playerAnim.SetBool("walk", horizontalTrigger != 0);
-        //playerAnim.SetBool("ontheground", ontheground);
+        playerAnim.SetBool("run", horizontalTrigger != 0);
         }
     }
 
@@ -48,7 +47,6 @@ public class Player2Controller : MonoBehaviour
 
         if (view.IsMine){
         body.velocity = new Vector2(body.velocity.x, speed);
-        //playerAnim.SetTrigger("jump");
         ontheground = false;
         }
     }

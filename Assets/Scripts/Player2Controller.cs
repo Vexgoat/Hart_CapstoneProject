@@ -44,10 +44,11 @@ public class Player2Controller : MonoBehaviour
     }
 
     private void Jumping(){
-
+        
         if (view.IsMine){
         body.velocity = new Vector2(body.velocity.x, speed);
         ontheground = false;
+        Debug.Log("Player Jumped!");
         }
     }
 

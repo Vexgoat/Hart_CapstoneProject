@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+
+public class MeleeAttack : MonoBehaviour
+{
+    private float timeToAttack;
+    private Animator playerAnim;
+
+    public Transform attackPosition;
+    public float attackRange;
+    public LayerMask tomb;
+    public int damage;
+
+    PhotonView view;
+
+    private void Start()
+    {
+        playerAnim = GetComponent<Animator>();
+        view = GetComponent<PhotonView>();
+    }
+
+    void Update()
+    {
+        if (view.IsMine)
+        {
+            if (timeToAttack > 0)
+            {
+                timeToAttack -= Time.deltaTime;
+            }
+
+            if (Input.GetMouseButtonDown(0) && timeToAttack <= 0)
+            {
+                playerAnim.SetTrigger("attack");
+                Collider2D[] tombstoneDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, tomb);
+
+                for (int i = 0; i < tombstoneDamage.Length; i++)
+                {
+                    Tombstone tombstone = tombstoneDamage[i].GetComponent<Tombstone>();
+                    if (tombstone != null)
+                    {
+                        tombstone.TakeDamage(damage);
+                    }
+                }
+
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosition.position, attackRange);
+    }
+}

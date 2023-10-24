@@ -189,6 +189,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4934138472588268657}
+  - {fileID: -7313182040065858784}
   - {fileID: -3332038420106703613}
   sceneViewId: 0
   InstantiationId: 0
@@ -301,6 +302,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: ontheground
+  - Type: 9
+    SynchronizeType: 0
+    Name: jump
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0

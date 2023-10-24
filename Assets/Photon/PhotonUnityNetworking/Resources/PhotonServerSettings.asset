@@ -42,6 +42,7 @@ MonoBehaviour:
   - SpawnKey
   - ChangeSprite
   - ChangeSpriteandGetKey
+  - TriggerJumpAnimation
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

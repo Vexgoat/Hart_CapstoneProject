@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Tombstone : MonoBehaviour
+public class Tombstone : MonoBehaviourPunCallbacks
 {
     public int maxHealth = 1;
     public Sprite intactSprite; 
@@ -39,9 +39,20 @@ public class Tombstone : MonoBehaviour
     void Die()
     {
         // Change the sprite to the destroyed one
+        Debug.Log("Die method called");
         spriteRendy.sprite = destroyedSprite;
-        GetComponent<Collider2D>().enabled = true;
+        photonView.RPC("ChangeSprite", RpcTarget.All);
+    }
+
+     [PunRPC]
+    void ChangeSprite()
+    {
+        spriteRendy.sprite = destroyedSprite;
+
         Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
         Instantiate(keyPrefab, spawnPosition, Quaternion.identity);
+
+        GetComponent<Collider2D>().enabled = true;
     }
+
 }

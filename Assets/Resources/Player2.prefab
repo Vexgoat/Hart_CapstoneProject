@@ -42,11 +42,12 @@ GameObject:
   - component: {fileID: 1198648305119388670}
   - component: {fileID: 6642724023394502549}
   - component: {fileID: 6313979968041780672}
-  - component: {fileID: 5142498485228435578}
   - component: {fileID: 8814219374525933859}
   - component: {fileID: 4934138472588268657}
   - component: {fileID: 5863218581613980137}
   - component: {fileID: 6372045360154034028}
+  - component: {fileID: -7313182040065858784}
+  - component: {fileID: -3332038420106703613}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -141,7 +142,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6313979968041780672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,19 +169,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0359592, y: 5.9793057}
   m_EdgeRadius: 0
---- !u!114 &5142498485228435578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694781681559134472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c40a64d53b0eb44be5a3c3b45c5b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!114 &8814219374525933859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +189,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4934138472588268657}
+  - {fileID: -3332038420106703613}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -274,3 +263,44 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 1
+--- !u!114 &-7313182040065858784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694781681559134472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed7e37f56c5793469e52dbba4d55287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  playerAnim: {fileID: 5863218581613980137}
+--- !u!114 &-3332038420106703613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694781681559134472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: attack
+  - Type: 4
+    SynchronizeType: 0
+    Name: walk
+  - Type: 4
+    SynchronizeType: 0
+    Name: ontheground
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0

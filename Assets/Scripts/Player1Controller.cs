@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class Player1Controller : MonoBehaviour
 { 
     public float speed;
+    public Animator playerAnim;
 
     private Rigidbody2D body;
-    private Animator playerAnim;
     private bool ontheground;
 
     PhotonView view; 

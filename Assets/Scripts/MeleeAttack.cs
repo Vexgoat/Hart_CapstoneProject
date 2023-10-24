@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : MonoBehaviourPunCallbacks
 {
-    private float timeToAttack;
     private Animator playerAnim;
 
     public Transform attackPosition;
@@ -13,7 +12,7 @@ public class MeleeAttack : MonoBehaviour
     public LayerMask tomb;
     public int damage;
 
-    PhotonView view;
+    private PhotonView view;
 
     private void Start()
     {
@@ -23,30 +22,23 @@ public class MeleeAttack : MonoBehaviour
 
     void Update()
     {
-        if (view.IsMine)
+        if(view.IsMine){
+        if (Input.GetMouseButtonDown(0))
         {
-            if (timeToAttack > 0)
-            {
-                timeToAttack -= Time.deltaTime;
-            }
+            playerAnim.SetTrigger("attack");
+            Collider2D[] tombstoneDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, tomb);
 
-            if (Input.GetMouseButtonDown(0) && timeToAttack <= 0)
+            for (int i = 0; i < tombstoneDamage.Length; i++)
             {
-                playerAnim.SetTrigger("attack");
-                Collider2D[] tombstoneDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, tomb);
-
-                for (int i = 0; i < tombstoneDamage.Length; i++)
+                Tombstone tombstone = tombstoneDamage[i].GetComponent<Tombstone>();
+                if (tombstone != null)
                 {
-                    Tombstone tombstone = tombstoneDamage[i].GetComponent<Tombstone>();
-                    if (tombstone != null)
-                    {
-                        tombstone.TakeDamage(damage);
-                    }
+                    tombstone.TakeDamage(damage);
                 }
-
             }
         }
     }
+}
 
     void OnDrawGizmosSelected()
     {

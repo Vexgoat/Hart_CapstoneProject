@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -4323993454825670440, guid: 0ac576b247992224ca51535aa403a8d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -243,13 +243,13 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: walk
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: ontheground
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: jump
   m_SynchronizeLayers:
   - SynchronizeType: 0

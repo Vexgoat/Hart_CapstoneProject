@@ -43,6 +43,9 @@ MonoBehaviour:
   - ChangeSprite
   - ChangeSpriteandGetKey
   - TriggerJumpAnimation
+  - CharacterAnimations
+  - FlipPlayer
+  - Jumping2
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

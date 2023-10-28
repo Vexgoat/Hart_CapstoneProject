@@ -12,7 +12,7 @@ public class MeleeAttack : MonoBehaviourPunCallbacks
     public LayerMask tomb;
     public int damage;
 
-    private PhotonView view;
+    PhotonView view;
 
     private void Start()
     {

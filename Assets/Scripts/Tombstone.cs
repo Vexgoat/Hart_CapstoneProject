@@ -14,10 +14,13 @@ public class Tombstone : MonoBehaviourPunCallbacks
     private int currentHealth;
     private SpriteRenderer spriteRendy;
 
+    PhotonView view;
+
     private void Start()
     {
         currentHealth = maxHealth;
         spriteRendy = GetComponent<SpriteRenderer>();
+        view = GetComponent<PhotonView>();
 
         // Output the initial health to the console
         Debug.Log("Tombstone Health: " + currentHealth);
@@ -36,16 +39,16 @@ public class Tombstone : MonoBehaviourPunCallbacks
         }
     }
 
-    void Die()
+    public void Die()
     {
         // Change the sprite to the destroyed one
         Debug.Log("Die method called");
         spriteRendy.sprite = destroyedSprite;
-        photonView.RPC("ChangeSprite", RpcTarget.All);
+        view.RPC("ChangeSprite", RpcTarget.All);
     }
 
      [PunRPC]
-    void ChangeSprite()
+    public void ChangeSprite()
     {
         spriteRendy.sprite = destroyedSprite;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class Player1Controller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 { 
     public float speed;
     public Animator playerAnim;
@@ -31,14 +31,14 @@ public class Player1Controller : MonoBehaviour
     
             // Flipping the player when moving.
             if (horizontalTrigger > 0.3f)
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                view.RPC("FlipPlayer", RpcTarget.All, true);
             else if (horizontalTrigger < -0.01f)
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                view.RPC("FlipPlayer", RpcTarget.All, false);
         
 
             //Player Jump
         if (Input.GetKey(KeyCode.Space) && ontheground)
-            Jumping();
+            Jumping2();
 
         playerAnim.SetBool("walk", horizontalTrigger != 0);
         playerAnim.SetBool("ontheground", ontheground);
@@ -48,9 +48,7 @@ public class Player1Controller : MonoBehaviour
     private void Jumping(){
 
         if (view.IsMine){
-        body.velocity = new Vector2(body.velocity.x, speed);
-        playerAnim.SetTrigger("jump");
-        ontheground = false;
+        view.RPC("Jump", RpcTarget.All);
         }
 
     }
@@ -59,5 +57,21 @@ public class Player1Controller : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
             ontheground = true;
+    }
+
+    [PunRPC]
+    public void FlipPlayer(bool flipRight){
+        if (flipRight)
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+    else
+        transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+    }
+
+    [PunRPC]
+
+    public void Jumping2(){
+        body.velocity = new Vector2(body.velocity.x, speed);
+        playerAnim.SetTrigger("jump");
+        ontheground = false;
     }
 }

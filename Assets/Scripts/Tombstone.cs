@@ -48,14 +48,15 @@ public class Tombstone : MonoBehaviourPunCallbacks
     }
 
      [PunRPC]
-    public void ChangeSprite()
-    {
-        spriteRendy.sprite = destroyedSprite;
+        public void ChangeSprite()
+        {
+            spriteRendy.sprite = destroyedSprite;
 
-        Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
-        Instantiate(keyPrefab, spawnPosition, Quaternion.identity);
+            Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
+            Chest.key = PhotonNetwork.Instantiate("Key", spawnPosition, Quaternion.identity);
 
-        GetComponent<Collider2D>().enabled = true;
-    }
+            GetComponent<Collider2D>().enabled = false;
+        }
+
 
 }

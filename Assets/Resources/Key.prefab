@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2355679376627199214}
   - component: {fileID: 4871762485980330168}
   - component: {fileID: 9122298098519088744}
-  - component: {fileID: 9017731269796816491}
+  - component: {fileID: 3292491594424930805}
+  - component: {fileID: 3509799422072239456}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,22 +104,35 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 0}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!136 &9017731269796816491
-CapsuleCollider:
+--- !u!114 &3292491594424930805
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9198494049495198362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.18655944
-  m_Height: 0.3931527
-  m_Direction: 1
-  m_Center: {x: -0.015359163, y: 0.006677985, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1efc70c9cc152f44864f54069855af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &3509799422072239456
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198494049495198362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04544711, y: 0.012394607}
+  m_Size: {x: 0.33198404, y: 0.4752108}
+  m_Direction: 0

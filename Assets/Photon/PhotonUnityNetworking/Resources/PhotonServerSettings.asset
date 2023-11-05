@@ -46,6 +46,13 @@ MonoBehaviour:
   - CharacterAnimations
   - FlipPlayer
   - Jumping2
+  - OpenChestRPC
+  - PickedUpKey
+  - DestroyKey
+  - SyncChestOpen
+  - OpenAnimation
+  - OpenChest
+  - LoadNextScene
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

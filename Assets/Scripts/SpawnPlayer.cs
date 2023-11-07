@@ -26,8 +26,3 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
         }
     }
 }
-
-    
-
-    
-

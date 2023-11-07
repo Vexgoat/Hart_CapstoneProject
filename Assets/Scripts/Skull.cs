@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class Skull : MonoBehaviour
+public class Skull : MonoBehaviourPunCallbacks
 {
     PhotonView view;
 
@@ -24,6 +24,7 @@ public class Skull : MonoBehaviour
     private void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        // Load the next scene
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

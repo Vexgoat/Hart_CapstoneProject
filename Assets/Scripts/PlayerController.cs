@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 { 
     public float speed;
     public Animator playerAnim;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         view = GetComponent<PhotonView>();
+
     }
  
     private void Update()

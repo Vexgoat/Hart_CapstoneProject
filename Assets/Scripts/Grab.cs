@@ -6,11 +6,11 @@ using Photon.Pun;
 public class Grab : MonoBehaviourPunCallbacks
 {
     public Transform grabPoint;
-    public float grabRadius; // Radius of the circular area for grabbing
-    public LayerMask grabLayer; // The layer(s) to check for grabbable objects
+    public float grabRadius; 
+    public LayerMask grabLayer; 
 
     private GameObject eyeObject;
-    private Collider2D[] hitColliders; // Array to store the colliders in the circular area
+    private Collider2D[] hitColliders; 
 
     PhotonView view;
 
@@ -60,4 +60,4 @@ public class Grab : MonoBehaviourPunCallbacks
         // Debug draw the grab area
         Debug.DrawLine(grabPoint.position, grabPoint.position + Vector3.right * grabRadius, Color.red);
     }
-}
+}  

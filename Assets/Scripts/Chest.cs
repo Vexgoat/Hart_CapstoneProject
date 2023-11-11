@@ -21,6 +21,7 @@ public class Chest : MonoBehaviourPunCallbacks
     {
         spriteRendy = GetComponent<SpriteRenderer>();
         view = GetComponent<PhotonView>();
+        //key = new GameObject("DummyKey");
     }
 
     private void Update()

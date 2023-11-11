@@ -17,10 +17,15 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                PhotonNetwork.Instantiate(playerPrefab1.name, spawnPosition1.position, Quaternion.identity);
+                // Instantiate the player prefab for player 1 using the local player's PhotonView
+                GameObject player1 = PhotonNetwork.Instantiate(playerPrefab1.name, spawnPosition1.position, Quaternion.identity);
+                
+                // Transfer ownership to the local player
+                player1.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
             }
             else
             {
+                // Instantiate the player prefab for player 2
                 PhotonNetwork.Instantiate(playerPrefab2.name, spawnPosition2.position, Quaternion.identity);
             }
         }

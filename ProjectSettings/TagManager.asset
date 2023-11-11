@@ -8,6 +8,7 @@ TagManager:
   - Tombstone
   - Key
   - grab
+  - Cauldron
   layers:
   - Default
   - TransparentFX

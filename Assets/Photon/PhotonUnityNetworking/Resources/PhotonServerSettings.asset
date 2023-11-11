@@ -53,6 +53,13 @@ MonoBehaviour:
   - OpenAnimation
   - OpenChest
   - LoadNextScene
+  - Grabbing
+  - Releasing
+  - GrabObject
+  - ReleaseObject
+  - SyncEyeObjectPosition
+  - DestroyEyeObject
+  - SetOwnership
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

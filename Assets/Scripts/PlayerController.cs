@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
  
     private void Start()
     {
+        view = GetComponent<PhotonView>();
         body = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
-        view = GetComponent<PhotonView>();
 
     }
  
@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
             body.velocity = new Vector2(horizontalTrigger * speed, body.velocity.y);
     
             // Flipping the player when moving.
-            if (horizontalTrigger > 0.3f)
+            if (horizontalTrigger > 0.3f){
                 view.RPC("FlipPlayer", RpcTarget.All, true);
-            else if (horizontalTrigger < -0.01f)
-                view.RPC("FlipPlayer", RpcTarget.All, false);
-        
+                PhotonNetwork.CleanRpcBufferIfMine(view);
+            }else if (horizontalTrigger < -0.01f)
+                view.RPC("FlipPlayer", RpcTarget.AllBuffered, false);
 
             //Player Jump
         if (Input.GetKey(KeyCode.Space) && ontheground)

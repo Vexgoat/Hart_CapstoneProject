@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Cauldron : MonoBehaviour
+public class Cauldron : MonoBehaviourPunCallbacks
 {
     public float interactionRadius = 1.0f;
-    public GameObject prefabToInstantiate;
+    public GameObject keyPrefab;
+    public Vector2 keySpawn = new Vector2(1f, 1f);
     public Transform interactionPoint; // Set this to the specific spot on the cauldron where you want to check for objects
 
     private void Update()
@@ -23,14 +24,20 @@ public class Cauldron : MonoBehaviour
                 // Iterate through all the colliders found
                 foreach (Collider2D collider in hitColliders)
                 {
-                    // Check if the collider has the "grab" tag
-                    if (collider.CompareTag("grab"))
+                    // Check if the collider has the "grab" tag and is owned by the local player
+                    if (collider.CompareTag("grab") && collider.gameObject.GetPhotonView().IsMine)
                     {
-                        // Destroy the eye object
-                        Destroy(collider.gameObject);
+                        // Destroy the object with the "grab" tag
+                        PhotonNetwork.Destroy(collider.gameObject);
 
                         // Instantiate the prefab
-                        Instantiate(prefabToInstantiate, interactionPoint.position, Quaternion.identity);
+                        Chest.key = PhotonNetwork.Instantiate("Key", keySpawn, Quaternion.identity);
+
+                        // Transfer ownership of the key to the local player
+                        //Chest.key.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
+
+                        // Turn off the collider of the cauldron
+                        GetComponent<Collider2D>().enabled = false;
 
                         // Break out of the loop if you only want to interact with one object at a time
                         break;

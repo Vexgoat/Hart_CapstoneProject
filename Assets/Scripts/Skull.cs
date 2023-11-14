@@ -4,6 +4,9 @@ using Photon.Pun;
 
 public class Skull : MonoBehaviourPunCallbacks
 {
+
+    public GameObject player1;
+    public GameObject player2;
     PhotonView view;
 
     private void Start()
@@ -23,8 +26,9 @@ public class Skull : MonoBehaviourPunCallbacks
     [PunRPC]
     private void LoadNextScene()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         // Load the next scene
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PhotonNetwork.LoadLevel(currentSceneIndex + 1);
     }
 }
+

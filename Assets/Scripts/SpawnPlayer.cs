@@ -13,21 +13,23 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
 
     void Start()
     {
+
+        PhotonNetwork.AutomaticallySyncScene = true;
+
         if (PhotonNetwork.InRoom)
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                // Instantiate the player prefab for player 1 using the local player's PhotonView
-                GameObject player1 = PhotonNetwork.Instantiate(playerPrefab1.name, spawnPosition1.position, Quaternion.identity);
-                
-                // Transfer ownership to the local player
-                player1.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
+                Debug.Log("Master client - Spawning player 1");
+                PhotonNetwork.Instantiate(playerPrefab1.name, spawnPosition1.position, Quaternion.identity);
             }
+            //try it without the else statement if it still isnt working
             else
             {
-                // Instantiate the player prefab for player 2
+                Debug.Log("Not master client - Spawning player 2");
                 PhotonNetwork.Instantiate(playerPrefab2.name, spawnPosition2.position, Quaternion.identity);
             }
         }
     }
 }
+

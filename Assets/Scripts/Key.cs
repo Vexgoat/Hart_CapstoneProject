@@ -21,7 +21,7 @@ public class Key : MonoBehaviourPunCallbacks
         {
             Debug.Log("Collided");
             // Call the RPC to destroy the key object for all players
-            photonView.RPC("DestroyKey", RpcTarget.All);
+            view.RPC("DestroyKey", RpcTarget.All);
         }
     }
 

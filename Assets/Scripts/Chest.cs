@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class Chest : MonoBehaviourPunCallbacks
 {
@@ -19,8 +20,8 @@ public class Chest : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        spriteRendy = GetComponent<SpriteRenderer>();
         view = GetComponent<PhotonView>();
+        spriteRendy = GetComponent<SpriteRenderer>();
         //key = new GameObject("DummyKey");
     }
 
@@ -29,6 +30,7 @@ public class Chest : MonoBehaviourPunCallbacks
         if (view.IsMine)
         {
             Debug.Log("Is mine");
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, proximityRadius);
             foreach (var collider in colliders)
             {
@@ -38,6 +40,7 @@ public class Chest : MonoBehaviourPunCallbacks
                     if (Input.GetKeyDown(KeyCode.E) && !isOpen && key == null)
                     {
                         Debug.Log("Interacting with chest");
+
                         // Play the open animation
                         view.RPC("OpenChest", RpcTarget.All);
 

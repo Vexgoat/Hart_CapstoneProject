@@ -16,7 +16,7 @@ public class Skull : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Player2"))
         {
             // Call the PunRPC method to load the scene across all clients
             view.RPC("LoadNextScene", RpcTarget.AllBuffered);
@@ -27,8 +27,10 @@ public class Skull : MonoBehaviourPunCallbacks
     private void LoadNextScene()
     {
         // Load the next scene
+        if(PhotonNetwork.IsMasterClient){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         PhotonNetwork.LoadLevel(currentSceneIndex + 1);
+        }
     }
 }
 

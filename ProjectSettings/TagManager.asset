@@ -9,6 +9,8 @@ TagManager:
   - Key
   - grab
   - Cauldron
+  - Chest
+  - Player2
   layers:
   - Default
   - TransparentFX

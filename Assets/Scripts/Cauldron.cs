@@ -8,7 +8,14 @@ public class Cauldron : MonoBehaviourPunCallbacks
     public float interactionRadius = 1.0f;
     public GameObject keyPrefab;
     public Vector2 keySpawn = new Vector2(1f, 1f);
-    public Transform interactionPoint; // Set this to the specific spot on the cauldron where you want to check for objects
+    public Transform interactionPoint; 
+
+    PhotonView view;
+
+    private void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
 
     private void Update()
     {
@@ -33,7 +40,6 @@ public class Cauldron : MonoBehaviourPunCallbacks
                         // Instantiate the prefab
                         Chest.key = PhotonNetwork.Instantiate("Key", keySpawn, Quaternion.identity);
 
-                        // Transfer ownership of the key to the local player
                         //Chest.key.GetPhotonView().TransferOwnership(PhotonNetwork.LocalPlayer);
 
                         // Turn off the collider of the cauldron

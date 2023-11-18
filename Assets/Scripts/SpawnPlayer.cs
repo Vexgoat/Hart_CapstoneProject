@@ -23,7 +23,6 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
                 Debug.Log("Master client - Spawning player 1");
                 PhotonNetwork.Instantiate(playerPrefab1.name, spawnPosition1.position, Quaternion.identity);
             }
-            //try it without the else statement if it still isnt working
             else
             {
                 Debug.Log("Not master client - Spawning player 2");

@@ -16453,7 +16453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1499360533676374909, guid: 1d192558a05a160468b4a951e56c0746, type: 3}
       propertyPath: sceneViewId
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1499360533676374911, guid: 1d192558a05a160468b4a951e56c0746, type: 3}
       propertyPath: eyeObject
@@ -16883,7 +16883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab1: {fileID: 9041114653210900036, guid: 1720ce160e370734db864bf79f5f4ee6, type: 3}
-  playerPrefab2: {fileID: 8694781681559134472, guid: bf1e0093c9271354e9dc6e621c916be2, type: 3}
+  playerPrefab2: {fileID: 4696548359394281034, guid: bd5ff353a2736754ab233f599bbd35a8, type: 3}
   spawnPosition1: {fileID: 297625240}
   spawnPosition2: {fileID: 1042410457}
 --- !u!1 &1692112077

@@ -1,14 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviourPunCallbacks
 {
     public int maxHealth = 3;
     public GameObject keyPrefab;
     public Vector2 keySpawn = new Vector2(1f, 1f);
-
-    private int currentHealth;
+    public int currentHealth;
+    public Slider healthSlider;
 
     PhotonView view;
 
@@ -16,6 +17,9 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     {
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
+
+        healthSlider = GameObject.Find("EnemyHealthbBar").GetComponent<Slider>();
+
     }
 
     public void TakeDamage(int damage)
@@ -25,9 +29,20 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         currentHealth -= damage;
         Debug.Log("Enemy Health: " + currentHealth);
 
+        UpdateHealthSlider();
+
         if (currentHealth <= 0)
         {
             view.RPC("Die", RpcTarget.All);
+        }
+    }
+
+    private void UpdateHealthSlider()
+    {
+        if (healthSlider != null)
+        {
+            // Normalize the current health value to set the slider value
+            healthSlider.value = (float)currentHealth / maxHealth;
         }
     }
 

@@ -1,27 +1,35 @@
 using System.Collections;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class Player2Health : MonoBehaviourPunCallbacks
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
+    public Slider healthSlider;
+
+    PhotonView view;
 
     private void Start()
     {
+        view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
+        UpdateHealthSlider();
     }
 
     public void TakeDamage(int damage)
     {
-        if (photonView.IsMine)
+        if (view.IsMine)
         {
             currentHealth -= damage;
             Debug.Log("Player2 Health " + currentHealth);
 
+            UpdateHealthSlider();
+
             if (currentHealth <= 0)
             {
-                photonView.RPC("Die", RpcTarget.All);
+                view.RPC("Die", RpcTarget.All);
             }
         }
     }
@@ -31,5 +39,14 @@ public class Player2Health : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("YouLose");
         Debug.Log("Player2 is Now dead");
+    }
+
+    private void UpdateHealthSlider()
+    {
+        if (healthSlider != null)
+        {
+            // Normalize the current health value to set the slider value
+            healthSlider.value = (float)currentHealth / maxHealth;
+        }
     }
 }

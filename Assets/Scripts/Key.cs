@@ -17,7 +17,7 @@ public class Key : MonoBehaviourPunCallbacks
     {
         
         // Check if the object colliding with the key is the player
-        if (other.CompareTag("Player") || other.CompareTag("Player2") && view.IsMine)
+        if ((other.CompareTag("Player") || other.CompareTag("Player2")) && view.IsMine)
         {
             Debug.Log("Collided");
             // Call the RPC to destroy the key object for all players

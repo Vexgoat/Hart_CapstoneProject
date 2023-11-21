@@ -11,6 +11,7 @@ TagManager:
   - Cauldron
   - Chest
   - Player2
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - UI
   - tomb
   - eye
-  - 
+  - enemy
   - 
   - 
   - 

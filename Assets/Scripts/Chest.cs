@@ -29,7 +29,7 @@ public class Chest : MonoBehaviourPunCallbacks
     {
         if (view.IsMine)
         {
-            Debug.Log("Is mine");
+            
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, proximityRadius);
             foreach (var collider in colliders)

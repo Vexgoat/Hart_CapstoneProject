@@ -18,10 +18,9 @@ public class Tombstone : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
         spriteRendy = GetComponent<SpriteRenderer>();
-        view = GetComponent<PhotonView>();
-
         // Output the initial health to the console
         Debug.Log("Tombstone Health: " + currentHealth);
     }

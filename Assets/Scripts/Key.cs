@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class Key : MonoBehaviourPunCallbacks
@@ -15,9 +17,8 @@ public class Key : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        // Check if the object colliding with the key is the player
-        if ((other.CompareTag("Player") || other.CompareTag("Player2")) && view.IsMine)
+        // Check if the object colliding with the key is the player and if the 'view' is not null
+        if ((other.CompareTag("Player") || other.CompareTag("Player2")) && view != null && view.IsMine)
         {
             Debug.Log("Collided");
             // Call the RPC to destroy the key object for all players

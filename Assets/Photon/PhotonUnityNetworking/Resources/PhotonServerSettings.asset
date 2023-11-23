@@ -66,6 +66,8 @@ MonoBehaviour:
   - SyncTime
   - RPCSyncTime
   - RPC_DisplayTime
+  - ApplyDamage
+  - UpdateHealthSlider
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

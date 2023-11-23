@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using Photon.Pun;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class EnemyHealth : MonoBehaviourPunCallbacks
 {
@@ -18,18 +19,28 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
 
-        healthSlider = GameObject.Find("EnemyHealthbBar").GetComponent<Slider>();
-
+        healthSlider = GameObject.Find("EnemyHealthBar").GetComponent<Slider>();
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        if (!view.IsMine) return; // Only process damage on the owner
+        if (!view.IsMine && PhotonNetwork.IsConnected) return;
 
+        view.RPC("ApplyDamage", RpcTarget.All, damage);
+    }
+
+    [PunRPC]
+    private void ApplyDamage(int damage)
+    {
         currentHealth -= damage;
         Debug.Log("Enemy Health: " + currentHealth);
 
-        UpdateHealthSlider();
+        view.RPC("UpdateHealthSlider", RpcTarget.All);
 
         if (currentHealth <= 0)
         {
@@ -37,12 +48,13 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
     private void UpdateHealthSlider()
     {
         if (healthSlider != null)
         {
             // Normalize the current health value to set the slider value
-            healthSlider.value = (float)currentHealth / maxHealth;
+            healthSlider.value = currentHealth;
         }
     }
 
@@ -65,5 +77,4 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
             GetComponent<Collider2D>().enabled = false;
         }
     }
-
 }

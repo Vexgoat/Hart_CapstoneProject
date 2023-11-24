@@ -16002,6 +16002,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8541128995910631408, guid: 123521eeb7cf3334383c0d267fc0c181, type: 3}
+      propertyPath: m_Name
+      value: EnemyHealthBar2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 123521eeb7cf3334383c0d267fc0c181, type: 3}
 --- !u!1 &1845223584

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class StopWatch : MonoBehaviourPunCallbacks
 {
@@ -13,25 +13,24 @@ public class StopWatch : MonoBehaviourPunCallbacks
 
     private static StopWatch instance;
 
+    PhotonView view;
+
     private void Awake()
     {
         if (instance != null && instance != this)
         {
-            // If an instance already exists, destroy this GameObject
             Destroy(gameObject);
             return;
         }
 
-        // Set this instance as the singleton
         instance = this;
-
-        // Ensure that this GameObject persists across scenes
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // Only the "owner" (master client) should start the stopwatch
+        view = GetComponent<PhotonView>();
+        // Ensure the timer starts only for the local player (master client)
         if (photonView.IsMine)
         {
             isRunning = true;
@@ -61,6 +60,11 @@ public class StopWatch : MonoBehaviourPunCallbacks
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
     }
 }

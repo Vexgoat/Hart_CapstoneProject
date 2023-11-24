@@ -8,12 +8,12 @@ using Photon.Pun;
 public class Enemy : MonoBehaviourPunCallbacks
 {
     public Transform[] patrolPoints;
-    public float patrolSpeed = 2f;
+    public float Speed = 2f;
     public float attackCooldown = 2f;
     public int attackDamage = 10;
 
     private Animator enemyAnimator;
-    private int currentPatrolIndex = 0;
+    private int patrolIndex = 0;
     private bool isAttacking = false;
     private SpriteRenderer enemySpriteRenderer;
 
@@ -30,28 +30,28 @@ public class Enemy : MonoBehaviourPunCallbacks
     {
         while (true)
         {
-            // Move towards the current patrol point
-            Transform targetPoint = patrolPoints[currentPatrolIndex];
+            //Move the enemy to the patrol point
+            Transform targetPoint = patrolPoints[patrolIndex];
 
             if (transform.position.x < targetPoint.position.x)
             {
-                enemySpriteRenderer.flipX = false; // Face right
+                enemySpriteRenderer.flipX = false; //Flip him to the right
             }
             else
             {
-                enemySpriteRenderer.flipX = true; // Face left
+                enemySpriteRenderer.flipX = true; //Flip him to the left
             }
 
             while (Vector2.Distance(transform.position, targetPoint.position) > 0.1f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, patrolSpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, Speed * Time.deltaTime);
                 yield return null;
             }
 
-            // Change the patrol point
-            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+            //Switch the patrol point to the next one
+            patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
 
-            // Wait for a moment before moving to the next patrol point
+            //Have him wait a second before patrolling to the other point
             yield return new WaitForSeconds(1f);
         }
     }
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviourPunCallbacks
         if (isAttacking)
             return;
 
-        // Check if player is nearby and initiate attack
+        //Check if player2 is nearby and if so attack
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.5f);
         foreach (Collider2D collider in colliders)
         {
@@ -78,10 +78,10 @@ public class Enemy : MonoBehaviourPunCallbacks
         isAttacking = true;
         enemyAnimator.SetTrigger("Attack");
 
-        // Play attack animation, wait for the animation duration
+        
         yield return new WaitForSeconds(0.5f);
 
-        // Deal damage to the player
+        //Deal damage to player2
         GameObject player = GameObject.FindGameObjectWithTag("Player2");
         if (player != null)
         {
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             }
         }
 
-        // Cooldown before the next attack
+        //Coolodown before the enemy can attack again
         yield return new WaitForSeconds(attackCooldown);
 
         isAttacking = false;

@@ -29,12 +29,11 @@ public class Key : MonoBehaviourPunCallbacks
     [PunRPC]
     public void DestroyKey()
     {
-        // Ensure that this is executed only on the owner client
-        if (view.IsMine)
+        // Check if 'view' is not null before accessing its properties
+        if (view != null && view.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);
             Chest.key = null;
-            
         }
     }
 }

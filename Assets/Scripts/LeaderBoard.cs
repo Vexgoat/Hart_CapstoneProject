@@ -1,101 +1,107 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class LeaderBoard : MonoBehaviourPunCallbacks
+public class LeaderBoard : MonoBehaviour
 {
     public InputField teamNameInput;
     public Button submitButton;
-    public Text timerText;
-
-    private float completionTime;
+    public Button quitButton; // Assuming you have a quit button
+    public string serverURL = "http://vexgoat.com/Boozzle/submitData.php";
+    private string teamName;
     private bool dataSubmitted = false;
-    private StopWatch stopWatch; // Reference to the StopWatch script
-
-    public string serverURL = "http://vexgoat.com/Boozzle/boozzleConnect.php";
+    private float completionTime;
 
     PhotonView view;
 
     private void Start()
     {
-        submitButton.onClick.AddListener(SubmitData);
-        stopWatch = FindObjectOfType<StopWatch>(); // Assuming StopWatch is attached to the same GameObject
-
         view = GetComponent<PhotonView>();
+        bool isMasterClient = PhotonNetwork.IsMasterClient;
 
-        // Only enable UI elements for the master client (player1)
-        if (PhotonNetwork.IsMasterClient)
+        teamNameInput.gameObject.SetActive(isMasterClient);
+
+        if (submitButton != null)
         {
-            teamNameInput.gameObject.SetActive(true);
-            submitButton.gameObject.SetActive(true);
+            submitButton.gameObject.SetActive(isMasterClient);
+            submitButton.interactable = isMasterClient;
+            submitButton.onClick.AddListener(SubmitData);
         }
         else
         {
-            teamNameInput.gameObject.SetActive(false);
-            submitButton.gameObject.SetActive(false);
+            Debug.LogError("submitButton is null.");
         }
-    }
 
-    private void Update()
-    {
-        // Check if the current scene is the "YouWin" scene
-        if (view != null && view.IsMine && dataSubmitted && SceneManager.GetActiveScene().name == "YouWin")
+        if (quitButton != null)
         {
-            // Get the data from the master client and send it to the server
-            StartCoroutine(SendData(teamNameInput.text, completionTime));
-
-            // Reset the dataSubmitted flag to ensure this block is executed only once
-            dataSubmitted = false;
+            quitButton.onClick.AddListener(QuitGame);
+        }
+        else
+        {
+            Debug.LogError("quitButton is null.");
         }
     }
 
     public void SubmitData()
     {
-        if (view.IsMine && stopWatch != null && !dataSubmitted)
+        if (!dataSubmitted)
         {
-            // Get the current scene name
-            string currentScene = SceneManager.GetActiveScene().name;
+            teamName = teamNameInput.text;
 
-            // Check if the current scene is the "YouWin" scene
-            if (currentScene == "YouWin")
+            StopWatch stopWatch = FindObjectOfType<StopWatch>();
+
+            if (stopWatch != null)
             {
-                string teamName = teamNameInput.text;
-
-                // Get completion time from the timer
                 completionTime = stopWatch.timeSoFar;
-
-                // Send data to the server
-                StartCoroutine(SendData(teamName, completionTime));
-
-                // Disable UI elements after submission only for the master client
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    teamNameInput.gameObject.SetActive(false);
-                    submitButton.gameObject.SetActive(false);
-                }
-
-                // Set flag to indicate data has been submitted
-                dataSubmitted = true;
+                stopWatch.StopTimer();
             }
+            else
+            {
+                Debug.LogWarning("StopWatch component not found.");
+            }
+
+            teamNameInput.gameObject.SetActive(false);
+
+            if (submitButton != null)
+            {
+                submitButton.gameObject.SetActive(false);
+                submitButton.interactable = false;
+            }
+            else
+            {
+                Debug.LogError("submitButton is null.");
+            }
+
+            StartCoroutine(SendData(teamName, completionTime));
+
+            dataSubmitted = true;
         }
+    }
+
+    public void QuitGame()
+    {
+        // Add any additional cleanup or saving logic if needed
+        Application.Quit();
+        Debug.Log("Application Quit");
     }
 
     IEnumerator SendData(string teamName, float completionTime)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("teamName", teamName);
-        form.AddField("completionTime", completionTime.ToString());
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("teamName", teamName));
+        formData.Add(new MultipartFormDataSection("completionTime", completionTime.ToString("F2")));
 
-        using (UnityWebRequest www = UnityWebRequest.Post(serverURL, form))
+        using (UnityWebRequest www = UnityWebRequest.Post(serverURL, formData))
         {
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError(www.error);
+                Debug.LogError("Error sending data: " + www.error);
             }
             else
             {

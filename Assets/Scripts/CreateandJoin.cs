@@ -1,21 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
-
 
 public class CreateandJoin : MonoBehaviourPunCallbacks
 {
 
 public TMP_InputField createInput;
 public TMP_InputField joinInput;
-
-    void Start()
-    {
-        
-    }
 
     public void CreateRoom()
     {
@@ -31,7 +24,4 @@ public TMP_InputField joinInput;
     {
         PhotonNetwork.LoadLevel("Level1");
     }
-    
-
-    
 }

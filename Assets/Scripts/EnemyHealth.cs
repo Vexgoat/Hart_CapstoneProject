@@ -62,19 +62,32 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     public void Die()
     {
         Debug.Log("Enemy Died");
-        view.RPC("SpawnKey", RpcTarget.AllBuffered);
+        view.RPC("SpawnKey", RpcTarget.All);
     }
 
     [PunRPC]
     public void SpawnKey()
     {
-        // Check if the current client owns the PhotonView
-        if (view.IsMine)
+        // Instantiate the key for all players
+        Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
+        Chest.key = PhotonNetwork.Instantiate("Key", spawnPosition, Quaternion.identity);
+
+        // Ensure the ownership of the spawned key
+        PhotonView keyView = Chest.key.GetComponent<PhotonView>();
+        keyView.TransferOwnership(view.Owner);
+
+        // Check if the current client is the owner, if not, try to transfer ownership
+        if (!view.IsMine)
         {
-            Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
-            Chest.key = PhotonNetwork.Instantiate("Key", spawnPosition, Quaternion.identity);
+            view.TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
+
+        // Only destroy the enemy if the current client is the owner or the MasterClient
+        if (view.IsMine || PhotonNetwork.IsMasterClient)
+        {
             PhotonNetwork.Destroy(gameObject);
             GetComponent<Collider2D>().enabled = false;
         }
     }
+
 }

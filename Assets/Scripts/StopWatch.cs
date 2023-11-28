@@ -15,6 +15,9 @@ public class StopWatch : MonoBehaviourPunCallbacks
 
     PhotonView view;
 
+    //This methoid is to make sure there is only only one timer in the scene 
+    //If there is another it will automatically be destroyed
+    //This is needed do to the fact it needs to not be destryoed across scenes and photon doesnt allow that
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -30,16 +33,18 @@ public class StopWatch : MonoBehaviourPunCallbacks
     private void Start()
     {
         view = GetComponent<PhotonView>();
-        // Ensure the timer starts only for the local player (master client)
-        if (photonView.IsMine)
+        if (view.IsMine)
         {
             isRunning = true;
         }
     }
 
+    //This method checks to see if the view is the masters and is running
+    //If both of these are true then it will increment the time using time.delta.time
+    //It also called the method rpcdisplaytime
     private void Update()
     {
-        if (photonView.IsMine && isRunning)
+        if (view.IsMine && isRunning)
         {
             if (timeSoFar >= 0)
             {
@@ -49,13 +54,16 @@ public class StopWatch : MonoBehaviourPunCallbacks
         }
     }
 
+    //This method calls the display time on all cilents with the updated time as an argument
     [PunRPC]
-    void RPC_DisplayTime(float timeToDisplay)
+    private void RPC_DisplayTime(float timeToDisplay)
     {
         DisplayTime(timeToDisplay);
     }
 
-    void DisplayTime(float timeToDisplay)
+    //This method takes the "timeToDisplay" and formats it into time(mins and seconds). 
+    //This then gets assigned to the UI text "timerText" showing the time elasped
+    private void DisplayTime(float timeToDisplay)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
@@ -63,6 +71,8 @@ public class StopWatch : MonoBehaviourPunCallbacks
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    //This is a method to stop the timer(it is also referenced to stop the timer when they submit the data)
+    //This happens in the leaderboard script.
     public void StopTimer()
     {
         isRunning = false;

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Key : MonoBehaviourPunCallbacks
 {
+    public AudioClip keyPickupSound;
 
     PhotonView view;
 
@@ -15,21 +14,28 @@ public class Key : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
     }
 
+    //This method checks for both player1 and player2 tags, and checks the views before calling the methods below
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the object colliding with the key is the player and if the 'view' is not null
+        
         if ((other.CompareTag("Player") || other.CompareTag("Player2")) && view != null && view.IsMine)
         {
-            Debug.Log("Collided");
-            // Call the RPC to destroy the key object for all players
+            view.RPC("KeyPickupSound", RpcTarget.All);
             view.RPC("DestroyKey", RpcTarget.All);
         }
     }
 
+    //This will play the key pickup sound
+    [PunRPC]
+    private void KeyPickupSound()
+    {
+        AudioSource.PlayClipAtPoint(keyPickupSound, transform.position);
+    }
+
+    //This will check the view before destroy the key to make sure the person who owns it destroys it
     [PunRPC]
     public void DestroyKey()
     {
-        // Check if 'view' is not null before accessing its properties
         if (view != null && view.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);

@@ -129,6 +129,7 @@ MonoBehaviour:
   closedSprite: {fileID: -1309413244939661745, guid: 19e07f9d107e445408633f50457d456e, type: 3}
   openedSprite: {fileID: 2032627284715886908, guid: 19e07f9d107e445408633f50457d456e, type: 3}
   proximityRadius: 1
+  chestOpenSound: {fileID: 8300000, guid: 2d2bc520ee955ad4ca06d24e6ef293c7, type: 3}
 --- !u!114 &-8092261431085188309
 MonoBehaviour:
   m_ObjectHideFlags: 0

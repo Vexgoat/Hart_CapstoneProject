@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
+//Not much to really say here
 public class MeleeAttack : MonoBehaviourPunCallbacks
 {
     public Transform attackPosition;
@@ -23,6 +22,7 @@ public class MeleeAttack : MonoBehaviourPunCallbacks
         playerAnim = GetComponent<Animator>();
     }
 
+    //when the player presses left click triggers the animation
     private void Update()
     {
         if (view.IsMine)
@@ -33,11 +33,12 @@ public class MeleeAttack : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    // Method called at the end of the attack animation
+    
+    //This is for the animation event so that he deals the damage at the end of the attack instead of right away
+    //Comparing both the enemy and tombstone using the same logic(colliders)
     public void AttackAtEndOfAnimation()
     {
-        // Deal damage to tombstones
+        // Deals damage to the tombstone object
         Collider2D[] tombstoneDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, tomb);
 
         for (int i = 0; i < tombstoneDamage.Length; i++)
@@ -49,7 +50,7 @@ public class MeleeAttack : MonoBehaviourPunCallbacks
             }
         }
 
-        // Deal damage to enemies
+        // Deal damage to enemy
         Collider2D[] enemyDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemy);
 
         for (int i = 0; i < enemyDamage.Length; i++)
@@ -62,7 +63,7 @@ public class MeleeAttack : MonoBehaviourPunCallbacks
         }
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition.position, attackRange);

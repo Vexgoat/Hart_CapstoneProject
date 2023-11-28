@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Tombstone : MonoBehaviourPunCallbacks
@@ -23,16 +21,12 @@ public class Tombstone : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
         spriteRendy = GetComponent<SpriteRenderer>();
-        // Output the initial health to the console
-        Debug.Log("Tombstone Health: " + currentHealth);
     }
 
+    //This method will allow the tombstone to take damage and call the die method
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        // Output the current health after taking damage
-        Debug.Log("Tombstone Health: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -40,14 +34,15 @@ public class Tombstone : MonoBehaviourPunCallbacks
         }
     }
 
+    //This method call the change sprite method
     public void Die()
     {
-        // Change the sprite to the destroyed one
-        Debug.Log("Die method called");
         spriteRendy.sprite = destroyedSprite;
         view.RPC("ChangeSprite", RpcTarget.All);
     }
 
+    //This method will change the sprite to the destroyed one and spawn a key.
+    //It will then disable the collider to prevent anymore keys from being spawned in.
      [PunRPC]
         public void ChangeSprite()
         {

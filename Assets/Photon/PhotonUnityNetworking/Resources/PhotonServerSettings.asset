@@ -68,6 +68,13 @@ MonoBehaviour:
   - RPC_DisplayTime
   - ApplyDamage
   - UpdateHealthSlider
+  - PlayGrabSound
+  - PlayKeyPickupSound
+  - PlaySkullPickupSoundAndLoadScene
+  - PerformAttack
+  - UpdateHealthSliderRPC
+  - GrabSound
+  - KeyPickupSound
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

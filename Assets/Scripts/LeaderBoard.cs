@@ -6,46 +6,45 @@ using UnityEngine.Networking;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class LeaderBoard : MonoBehaviour
+public class LeaderBoard : MonoBehaviourPunCallbacks
 {
     public InputField teamNameInput;
     public Button submitButton;
-    public Button quitButton; // Assuming you have a quit button
+    public Button quitButton; 
     public string serverURL = "http://vexgoat.com/Boozzle/submitData.php";
+
     private string teamName;
     private bool dataSubmitted = false;
     private float completionTime;
 
     PhotonView view;
 
+    //This method checks if the cilent is master(player1), then will only show player1 the teamName and submit button
+    //When the submit button is pressed the submitdata method is called
     private void Start()
     {
         view = GetComponent<PhotonView>();
         bool isMasterClient = PhotonNetwork.IsMasterClient;
 
-        teamNameInput.gameObject.SetActive(isMasterClient);
-
-        if (submitButton != null)
+        if (teamNameInput != null && submitButton != null)
         {
+            teamNameInput.gameObject.SetActive(isMasterClient);
             submitButton.gameObject.SetActive(isMasterClient);
             submitButton.interactable = isMasterClient;
-            submitButton.onClick.AddListener(SubmitData);
-        }
-        else
-        {
-            Debug.LogError("submitButton is null.");
+
+            if (isMasterClient)
+            {
+                submitButton.onClick.AddListener(SubmitData);
+            }
         }
 
         if (quitButton != null)
         {
             quitButton.onClick.AddListener(QuitGame);
         }
-        else
-        {
-            Debug.LogError("quitButton is null.");
-        }
     }
 
+    //This method checks if the team name has been submitted, if it has it collects that data, hides the UI and starts the senddata coroutine 
     public void SubmitData()
     {
         if (!dataSubmitted)
@@ -59,10 +58,6 @@ public class LeaderBoard : MonoBehaviour
                 completionTime = stopWatch.timeSoFar;
                 stopWatch.StopTimer();
             }
-            else
-            {
-                Debug.LogWarning("StopWatch component not found.");
-            }
 
             teamNameInput.gameObject.SetActive(false);
 
@@ -71,10 +66,6 @@ public class LeaderBoard : MonoBehaviour
                 submitButton.gameObject.SetActive(false);
                 submitButton.interactable = false;
             }
-            else
-            {
-                Debug.LogError("submitButton is null.");
-            }
 
             StartCoroutine(SendData(teamName, completionTime));
 
@@ -82,13 +73,17 @@ public class LeaderBoard : MonoBehaviour
         }
     }
 
+    //This will quit the game :O
     public void QuitGame()
     {
-        // Add any additional cleanup or saving logic if needed
         Application.Quit();
-        Debug.Log("Application Quit");
     }
 
+    //This method creates a list containing the team name and the completion time
+    //Then it send a POST request to the URl above
+    //After that the completion time is converted to a string with 2 decimal places
+    //Then waits for it to be completed
+    //yay
     IEnumerator SendData(string teamName, float completionTime)
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
@@ -98,15 +93,6 @@ public class LeaderBoard : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(serverURL, formData))
         {
             yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError("Error sending data: " + www.error);
-            }
-            else
-            {
-                Debug.Log("Data sent successfully");
-            }
         }
     }
 }

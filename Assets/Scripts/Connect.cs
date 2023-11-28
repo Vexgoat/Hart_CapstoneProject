@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 using Photon.Pun;
 
-
+//This Script is used to connect the players to the lobby screen to create and join rooms.
+//Aka the loading screen
 public class Connect : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Start()
     {
-        //PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
     }
 

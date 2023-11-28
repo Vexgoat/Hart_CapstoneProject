@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 
@@ -20,14 +19,16 @@ public class Player2Health : MonoBehaviourPunCallbacks
         UpdateHealthSlider();
     }
 
+    //This method allows the player2 to take damage.
+    //It also calls the method that will update the healthbar
     public void TakeDamage(int damage)
     {
         if (view.IsMine)
         {
             currentHealth -= damage;
-            Debug.Log("Player2 Health " + currentHealth);
 
             UpdateHealthSlider();
+            view.RPC("UpdateHealthSliderRPC", RpcTarget.Others, currentHealth);
 
             if (currentHealth <= 0)
             {
@@ -36,18 +37,26 @@ public class Player2Health : MonoBehaviourPunCallbacks
         }
     }
 
+    //Self explantory but, when player2 dies losing scene is loaded on the network
     [PunRPC]
     private void Die()
     {
         PhotonNetwork.LoadLevel("YouLose");
-        Debug.Log("Player2 is Now dead");
     }
 
+    //This method updates the healthbar on all screens
+    [PunRPC]
+    private void UpdateHealthSliderRPC(int newHealth)
+    {
+        currentHealth = newHealth;
+        UpdateHealthSlider();
+    }
+
+    //:0
     private void UpdateHealthSlider()
     {
         if (healthSlider != null)
         {
-            // Normalize the current health value to set the slider value
             healthSlider.value = (float)currentHealth / maxHealth;
         }
     }

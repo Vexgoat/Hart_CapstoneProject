@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Enemy : MonoBehaviourPunCallbacks
@@ -13,7 +11,7 @@ public class Enemy : MonoBehaviourPunCallbacks
     public int attackDamage = 10;
 
     private Animator enemyAnimator;
-    private int patrolIndex = 0;
+    private int patrolArray = 0;
     private bool isAttacking = false;
     private SpriteRenderer enemySpriteRenderer;
 
@@ -31,7 +29,7 @@ public class Enemy : MonoBehaviourPunCallbacks
         while (true)
         {
             //Move the enemy to the patrol point
-            Transform targetPoint = patrolPoints[patrolIndex];
+            Transform targetPoint = patrolPoints[patrolArray];
 
             if (transform.position.x < targetPoint.position.x)
             {
@@ -49,7 +47,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             }
 
             //Switch the patrol point to the next one
-            patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
+            patrolArray = (patrolArray + 1) % patrolPoints.Length;
 
             //Have him wait a second before patrolling to the other point
             yield return new WaitForSeconds(1f);
@@ -61,7 +59,7 @@ public class Enemy : MonoBehaviourPunCallbacks
         if (isAttacking)
             return;
 
-        //Check if player2 is nearby and if so attack
+        //Check if player2 is nearby and if so attack him
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.5f);
         foreach (Collider2D collider in colliders)
         {
@@ -77,7 +75,6 @@ public class Enemy : MonoBehaviourPunCallbacks
     {
         isAttacking = true;
         enemyAnimator.SetTrigger("Attack");
-
         
         yield return new WaitForSeconds(0.5f);
 
@@ -92,7 +89,7 @@ public class Enemy : MonoBehaviourPunCallbacks
             }
         }
 
-        //Coolodown before the enemy can attack again
+        //Coolodown before the enemy can attack again or else it is literally broken
         yield return new WaitForSeconds(attackCooldown);
 
         isAttacking = false;

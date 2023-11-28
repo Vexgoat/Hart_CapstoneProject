@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
+//This script is used to create and join rooms on the network, by doing so it will load you into the game
+//aka Level1
 public class CreateandJoin : MonoBehaviourPunCallbacks
 {
 

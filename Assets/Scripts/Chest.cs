@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Chest : MonoBehaviourPunCallbacks
@@ -12,7 +10,7 @@ public class Chest : MonoBehaviourPunCallbacks
     public Vector2 skullSpawn = new Vector2(1f, 1f);
     public Sprite closedSprite;
     public Sprite openedSprite;
-    public float proximityRadius = 2.0f; // Adjust this radius to set the proximity range.
+    public float proxRadius = 2.0f;
 
     private SpriteRenderer spriteRendy;
     private bool isOpen = false;
@@ -23,39 +21,35 @@ public class Chest : MonoBehaviourPunCallbacks
     {
         view = GetComponent<PhotonView>();
         spriteRendy = GetComponent<SpriteRenderer>();
-        //key = new GameObject("DummyKey");
+        key = new GameObject("DummyKey");
     }
 
+    //This method check who is viewing, compares the tag player, then checks if the key is gone and if the player pressed e.
+    //Afterwards it will switch the sprites across all cilents and also instantiate the skull object across all cilents.
     private void Update()
     {
         if (view.IsMine)
         {
-            
-
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, proximityRadius);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, proxRadius);
             foreach (var collider in colliders)
             {
                 if (collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player in proximity");
                     if (Input.GetKeyDown(KeyCode.E) && !isOpen && key == null)
                     {
-                        Debug.Log("Interacting with chest");
-
-                        // Play the open animation
                         view.RPC("OpenChest", RpcTarget.All);
-
-                        // Instantiate the skull at the spawn point
+                        
                         Vector2 spawnPosition = (Vector2)transform.position + skullSpawn;
                         PhotonNetwork.Instantiate("Skull", spawnPosition, Quaternion.identity);
 
-                        isOpen = true; // Ensure this only happens once
+                        isOpen = true;
                     }
                 }
             }
         }
     }
 
+    //This is the method that gets called in the update method to switch the sprites
     [PunRPC]
     private void OpenChest()
     {

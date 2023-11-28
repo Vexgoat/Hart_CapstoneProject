@@ -14,33 +14,35 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
 
     PhotonView view;
 
+    //This method sets the slider value to the current health of the enemy  
     private void Start()
     {
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
 
-        healthSlider = GameObject.Find("EnemyHealthBar").GetComponent<Slider>();
+        healthSlider = GameObject.Find("EnemyHealthBar2").GetComponent<Slider>();
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
     }
-
+    //This method checks if the view is not the local player and if connected to the network if it is it returns preventing anything further from a non local player
+    //This method also calls two other methods to take damage and update the health slider
     public void TakeDamage(int damage)
     {
         if (!view.IsMine && PhotonNetwork.IsConnected) return;
 
         view.RPC("ApplyDamage", RpcTarget.All, damage);
+        view.RPC("UpdateHealthSlider", RpcTarget.All);
     }
 
+    //This method allows the enemy to take damage
     [PunRPC]
     private void ApplyDamage(int damage)
     {
         currentHealth -= damage;
         Debug.Log("Enemy Health: " + currentHealth);
-
-        view.RPC("UpdateHealthSlider", RpcTarget.All);
 
         if (currentHealth <= 0)
         {
@@ -48,41 +50,35 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         }
     }
 
+    //This method updates the healthbar for the enemy
     [PunRPC]
     private void UpdateHealthSlider()
     {
-        if (healthSlider != null)
-        {
-            // Normalize the current health value to set the slider value
-            healthSlider.value = currentHealth;
-        }
+        healthSlider.value = currentHealth;
     }
 
+    //This method is used to call another method smh
     [PunRPC]
     public void Die()
     {
-        Debug.Log("Enemy Died");
         view.RPC("SpawnKey", RpcTarget.All);
     }
 
+    //This method is used to spawn the key! it also transfers the ownership to the local player so that player2 can pick it up. Then it destroys the enemy and disables the collider.
     [PunRPC]
     public void SpawnKey()
     {
-        // Instantiate the key for all players
         Vector2 spawnPosition = (Vector2)transform.position + keySpawn;
         Chest.key = PhotonNetwork.Instantiate("Key", spawnPosition, Quaternion.identity);
-
-        // Ensure the ownership of the spawned key
+        
         PhotonView keyView = Chest.key.GetComponent<PhotonView>();
         keyView.TransferOwnership(view.Owner);
 
-        // Check if the current client is the owner, if not, try to transfer ownership
         if (!view.IsMine)
         {
             view.TransferOwnership(PhotonNetwork.LocalPlayer);
         }
 
-        // Only destroy the enemy if the current client is the owner or the MasterClient
         if (view.IsMine || PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Destroy(gameObject);

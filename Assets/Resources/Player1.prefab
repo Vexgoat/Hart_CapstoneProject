@@ -303,3 +303,4 @@ MonoBehaviour:
   grabLayer:
     serializedVersion: 2
     m_Bits: 128
+  grabSound: {fileID: 8300000, guid: 708930c26e57573418f6824fa4ca7b4f, type: 3}

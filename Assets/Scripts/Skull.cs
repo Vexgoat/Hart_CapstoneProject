@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Skull : MonoBehaviourPunCallbacks
@@ -10,6 +9,7 @@ public class Skull : MonoBehaviourPunCallbacks
 
     public GameObject player1;
     public GameObject player2;
+
     PhotonView view;
 
     private void Start()
@@ -17,6 +17,7 @@ public class Skull : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
     }
 
+    //This method will check for both player tags then load then call the method loadnextscene
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Player2"))
@@ -26,6 +27,7 @@ public class Skull : MonoBehaviourPunCallbacks
         }
     }
 
+    //This method will load the next scene in the build index for all players across the network
     [PunRPC]
     private void LoadNextScene()
     {

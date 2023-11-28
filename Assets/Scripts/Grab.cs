@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Photon.Pun;
 
 public class Grab : MonoBehaviourPunCallbacks
@@ -10,6 +8,7 @@ public class Grab : MonoBehaviourPunCallbacks
     public Transform grabPoint;
     public float grabRadius; 
     public LayerMask grabLayer; 
+    public AudioClip grabSound;
 
     private GameObject eyeObject;
     private Collider2D[] hitColliders; 
@@ -21,30 +20,31 @@ public class Grab : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
     }
 
-    void Update()
+    //This method check if the view is yours, then checks if your holding the eye object and if u are
+    //It sets everything to true and gets the position
+    //Further down the line it will check if your holding the eyeobject and do the opposite and will not get the position
+    private void Update()
     {
         if (view.IsMine)
         {
-            // Check for nearby objects in a circular area
             hitColliders = Physics2D.OverlapCircleAll(grabPoint.position, grabRadius, grabLayer);
 
-            // Iterate through the colliders to find a grabbable object
             foreach (Collider2D collider in hitColliders)
             {
                 if (eyeObject == null && Input.GetMouseButtonDown(1))
                 {
-                    Debug.Log("IS Working");
                     eyeObject = collider.gameObject;
                     eyeObject.GetComponent<Rigidbody2D>().isKinematic = true;
                     eyeObject.GetComponent<BoxCollider2D>().isTrigger = true;
                     eyeObject.transform.position = grabPoint.position;
                     eyeObject.transform.SetParent(transform);
-                    break; // Exit the loop after grabbing the first object
-                    
+
+                    view.RPC("GrabSound", RpcTarget.All);
+
+                    break;
                 }
             }
 
-            // Release the grabbed object on right-click
             if (Input.GetMouseButtonUp(1) && eyeObject != null)
             {
                 eyeObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -53,13 +53,14 @@ public class Grab : MonoBehaviourPunCallbacks
                 eyeObject = null;
             }
         }
-
-        DebugDrawGrabArea();
     }
-
-    void DebugDrawGrabArea()
-    {
-        // Debug draw the grab area
-        Debug.DrawLine(grabPoint.position, grabPoint.position + Vector3.right * grabRadius, Color.red);
+    //This just plays the grab sound
+    [PunRPC]
+    private void GrabSound(){
+    if(view.IsMine){
+    
+        AudioSource.PlayClipAtPoint(grabSound, eyeObject.transform.position);
+    
+        }
     }
-}  
+}

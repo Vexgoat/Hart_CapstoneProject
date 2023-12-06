@@ -65,9 +65,8 @@ public class StopWatch : MonoBehaviourPunCallbacks
     //This then gets assigned to the UI text "timerText" showing the time elasped
     private void DisplayTime(float timeToDisplay)
     {
-        timeToDisplay += 1;
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        float minutes = Mathf.Floor(timeToDisplay / 60);
+        float seconds = Mathf.Floor(timeToDisplay % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
